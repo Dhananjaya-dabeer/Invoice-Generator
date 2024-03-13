@@ -15,30 +15,34 @@ const InvoiceDemoComp = () => {
       .map((quantity, index) => quantity * rate[index])
       .reduce((acc, curr) => acc + curr);
   const invoiceGenerateHandler = async () => {
+    if (!qty.length || !product.length || !rate.length) {
+      alert("please fill the fields to generate");
+      return;
+    }
     try {
       const invoiceData = await axios.post(
         `http://localhost:3001/api/v2/data/invoice`,
         { userid, product, qty, rate },
         {
-          responseType: 'blob', // Set the response type to 'blob' to handle binary data
+          responseType: "blob", // Set the response type to 'blob' to handle binary data
         }
       );
-  
+
       // Create a Blob object from the response data
-      const blob = new Blob([invoiceData.data], { type: 'application/pdf' });
-  
+      const blob = new Blob([invoiceData.data], { type: "application/pdf" });
+
       // Create a URL for the Blob object
       const url = window.URL.createObjectURL(blob);
-  
+
       // Create a link element to trigger the download
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = url;
-      link.setAttribute('download', 'Invoice.pdf');
-      
+      link.setAttribute("download", "Invoice.pdf");
+
       // Trigger the download
       document.body.appendChild(link);
       link.click();
-  
+
       // Clean up
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
