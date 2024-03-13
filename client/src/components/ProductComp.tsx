@@ -2,24 +2,28 @@ import { useContext, useState } from "react";
 import UserContext from "../context/userContext";
 
 const ProductComp = () => {
-  const { setProduct, setQty, setRate } = useContext(UserContext);
+ 
+  const { product, setProduct, qty, setQty, rate, setRate } =
+    useContext(UserContext);
 
   const [productName, setProductName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
 
   const invoiceAddHandler = () => {
-   if(!productName || ! quantity || !price){
-        alert("all fields are reqruired")
-        return
-   }
-   setProduct(productName);
-   setQty(parseInt(quantity));
-   setRate(parseInt(price));
-   setProductName("");
-   setQuantity("");
-   setPrice("");
+    if (!productName || !quantity || !price) {
+      alert("all fields are reqruired");
+      return;
+    }
+    setProduct([...product, productName]);
+    setQty([...qty, parseInt(quantity)]);
+    setRate([...rate, parseInt(price)]);
+    setProductName("");
+    setQuantity("");
+    setPrice("");
   };
+
+  
   return (
     <div className="flex justify-center flex-col items-center h-scree w-1/2">
       <div className="flex justify-between items-center mb-10 w-2/3">

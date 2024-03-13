@@ -44,7 +44,8 @@ export const login = asyncHandler(async (req, res) => {
         return res.json({
             status: "Success",
             message: `Hello ${existingUser.name}`,
-            token: token
+            token: token,
+            user_id: existingUser._id
 
         })
 

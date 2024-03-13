@@ -39,15 +39,15 @@ const RegisterComp = () => {
   };
   // console.log(name, email, password);
   return (
-    <div className="flex justify-center items-center h-3/4 w-3/6 bg-white bg-opacity-80">
+    <div className="flex justify-center items-center w-3/6 bg-white bg-opacity-80">
       <div>
         <div className=" mb-6 text-custom-grey flex flex-col justify-center items-center">
-          <h1 className="text-5xl">Your Mart</h1>
+          <h1 className="text-5xl">Invoice Genrator</h1>
           <h3 className="text-xl">Register</h3>
         </div>
         <div className="mb-7 w-auto">
           <input
-            className="w-96 h-12 bg-gray-200"
+            className="w-full h-12 bg-gray-200 md:w-80"
             type="text"
             placeholder="Name"
             onChange={(e) => setName(e.target.value)}
@@ -56,7 +56,7 @@ const RegisterComp = () => {
         </div>
         <div className="mb-7 w-auto">
           <input
-            className="w-96 h-12 bg-gray-200"
+            className="w-full h-12 bg-gray-200 md:w-80"
             type="text"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
@@ -65,7 +65,7 @@ const RegisterComp = () => {
         </div>
         <div>
           <input
-            className="w-96 h-12 bg-gray-200"
+            className="w-full h-12 bg-gray-200 md:w-80"
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
@@ -83,7 +83,7 @@ const RegisterComp = () => {
 
         <div className="mt-10 flex justify-center items-center ">
           <button
-            className="bg-custom-grey text-white w-96 h-12"
+            className="bg-custom-grey text-white w-full h-12 md:w-80"
             onClick={() => HandleRegister()}
           >
             Register
