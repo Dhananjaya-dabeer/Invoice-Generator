@@ -12,7 +12,7 @@ const RegisterPage = () => {
     (async () => {
       try {
         const userVerification = await axios.get(
-          "http://localhost:3001/api/v1/user/jwtverify",
+          "https://invoice-generator-fh97.onrender.com/api/v1/user/jwtverify",
           {
             headers: {
               Authorization: token,

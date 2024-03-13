@@ -18,7 +18,7 @@ const RegisterComp = () => {
       if (!(password.length < 8)) {
         try {
           const userDetails = await axios.post(
-            `http://localhost:3001/api/v1/user/register`,
+            `https://invoice-generator-fh97.onrender.com/api/v1/user/register`,
             { name, email, password }
           );
           userDetails.data && alert(userDetails.data.message);

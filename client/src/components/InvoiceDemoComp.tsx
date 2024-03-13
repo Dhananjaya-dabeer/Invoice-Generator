@@ -21,7 +21,7 @@ const InvoiceDemoComp = () => {
     }
     try {
       const invoiceData = await axios.post(
-        `http://localhost:3001/api/v2/data/invoice`,
+        `https://invoice-generator-fh97.onrender.com/api/v2/data/invoice`,
         { userid, product, qty, rate },
         {
           responseType: "blob", // Set the response type to 'blob' to handle binary data
